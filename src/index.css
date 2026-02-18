@@ -1,0 +1,145 @@
+/* 1. Tailwind Import */
+@import "tailwindcss";
+
+/* 2. Global Resets for Desktop and Mobile */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  /* Fixed: Set to display: block to prevent the "centered narrow" desktop look */
+  display: block; 
+  background-color: #1a1a1a; /* Matching your dark theme */
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 3. Navigation Bar Fix */
+nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* 4. Desktop Form Container */
+.resume-form-container {
+  /* This centers the form on desktop with top margin for the navbar */
+  margin: 100px auto 50px auto; 
+  width: 90%;
+  max-width: 1100px; /* Wider for desktop */
+  padding: 20px;
+}
+
+/* 5. Typography and Global Elements */
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* --- HERO SECTION CUSTOM STYLES --- */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Background image setting */
+  background: url("./assets/login.png") no-repeat center center;
+  background-size: cover; /* Desktop par poori screen cover karega */
+  padding: 0 5%;
+  overflow: hidden;
+}
+
+/* Dark overlay taake text nazar aaye */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* 60% darkness */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 1000px; /* Desktop content width */
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: clamp(40px, 6vw, 80px); /* Responsive font size */
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-shadow: 0px 4px 15px rgba(0, 0, 255, 0.5);
+  font-family: 'Lobster', cursive;
+}
+
+.hero-content p {
+  font-size: clamp(18px, 2vw, 24px);
+  margin-bottom: 35px;
+  line-height: 1.6;
+  color: #e0e0e0;
+  font-family: 'Satisfy', cursive;
+}
+
+.hero-content button {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #80118f, #5519bd);
+  border: 1px solid #ff00ff;
+  border-radius: 50px;
+  box-shadow: 0px 0px 20px rgba(255, 0, 255, 0.6);
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.hero-content button:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0px 0px 35px rgba(255, 0, 255, 0.9);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    background-size: contain; /* Mobile par image poori dikhegi */
+    background-position: top center;
+  }
+  
+  .hero-content {
+    margin-top: 50px;
+  }
+}
